@@ -1,0 +1,46 @@
+extends ./base
+    
+block content
+    #container.my-container
+        .form-container.sign-up-container#login-container
+            form(action='#')
+                h1 Create Account
+                .social-container
+                span or use your email for registration
+                input(type='text' name = 'name' placeholder='Name')#name
+                input(type='email' name = 'email'  placeholder='Email')#sign-email
+                input(type='password' name = 'password' placeholder='Password')#sign-password
+                input(type='password' name = 'confirm-password' placeholder='Confirm Password')#sign-confirmPassword
+            button(type='submit')#create Sign Up
+            button.mobile-form#mobile-login Or Login
+        .form-container.sign-in-container
+            form(action='#')
+                h1 Login to Prince Bakery
+                //- This feature is in the implementation
+                .social-container
+                    //- <div class="g-signin2" data-onsuccess="onSignIn"></div> 
+                //- span or use your account
+                input(type='email' name = 'email' placeholder='Email')#login-email
+                input(type='password' name = 'password' placeholder='Password')#login-password
+                a(href='/forgotpassword') Forgot your password?
+            button(type = 'submit')#login Login
+            button.mobile-form#mobile-signup Or Sign Up
+        .overlay-container
+            .overlay
+                .overlay-panel.overlay-left
+                    h1 Welcome Back!
+                    p To keep connected with us please login with your personal info
+                    button#signIn.ghost Login
+                .overlay-panel.overlay-right
+                    h1 Hello, Friend!
+                    p Enter your personal details and start journey with us
+                    button#signUp.ghost Sign Up
+                    
+    
+
+    
+    
+    
+    
+
+        

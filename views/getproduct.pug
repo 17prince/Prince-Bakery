@@ -1,0 +1,48 @@
+extends ./base  
+
+block content   
+    .container-xxl.row(style = "margin-top: 100px; padding:20px 40px;") 
+        .img-section.col-md-4 
+            img(src=`/${product.image}`, alt=`${product.name}`)
+        .product-info.col-md-8#product-details 
+            h2= product.name 
+            a.visit-shop(href="/location") Also Visit Our Shop
+            h3.tag Prince Bakery 
+            h5 FREE delivery: Today 
+            h4 Average Ratings: 
+                span= `${product.averageRatings}(${product.ratingsQuantity})`
+            h4.price Price &#8377
+                span= product.price
+            .button-section 
+                if user
+                    a(href="#" data-productId = `${product.id}`)#buy-now Buy Now 
+                    a(href="/cart" data-product = `${product.id}` data-userId = `${user.id}`)#add-to-cart Add to Cart
+                else 
+                    a(href="/login") Buy Now 
+                    a(href="/login") Add to Cart
+            button.collapsible(type="button") About Product <i class="fa fa-sort-desc" aria-hidden="true" ></i>
+            div.content
+                p Lorem ipsum dolor sit amet consectetur adipisicing elit. Odit, maiores vel dignissimos repellendus, quibusdam praesentium neque, debitis sit fugiat similique maxime placeat qui? Provident, repudiandae dolorem, distinctio error repellendus officia esse ex veniam tempore minima, consequuntur qui excepturi facere perferendis architecto minus cumque a aut nobis. Modi voluptate eaque dolore impedit molestias, eveniet consequuntur necessitatibus maiores placeat quam eum tempore.
+    //- <i class="fa fa-star-o" aria-hidden="true"></i>
+    .container.review-container 
+        h1 Customer Reviews 
+        .filter-review
+            select#review-filter(name="reviews" data-productId = `${product.id}`) 
+                option(value="sort=-rating") Top Reviews
+                option(value="sort=-createdAt") Most Recent 
+        #user-review
+            each review in product.reviews
+                .review-section 
+                    .customer-img
+                        img(src=`/images/users/${review.user.photo}`, alt="customer")
+                        h4= `${review.user.name}` 
+                            p= `Created At: ${review.createdAt.toLocaleString('en-IN', {dateStyle: 'full'})}`
+                    .star-rating 
+                        each star in [1,2,3,4,5]
+                            i(class = `${review.rating >= star ? "fa fa-star star" : "fa fa-star-o"}`)
+                        h4.rate= `${review.rating} out of 5` 
+                    .review 
+                        h5= review.review 
+       
+        
+                    

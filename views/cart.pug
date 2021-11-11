@@ -1,0 +1,30 @@
+extends ./base
+
+block content 
+    .container-xxl.text-center(style = "margin-top: 90px; ")
+        .row.pk-container 
+            .cart-section.col-md-9#main-cart-container
+                -const text = carts.length == 0 ? "Your bakery cart is empty" : "Shopping Cart" 
+                h2.heading-cart.text-left= text 
+                each cart in carts 
+                    .cart-card 
+                        input.select-btn(type="checkbox" name = 'item-select' data-productId = `${cart.product.id}` data-price= `${cart.product.price}`)
+                        .cart-img 
+                            a(href=`/getproduct/${cart.product.slug}`) 
+                                img(src=`/${cart.product.image}`)
+                        
+                        .details 
+                            a(href=`/getproduct/${cart.product.slug}`) 
+                                h2= cart.product.name 
+                            h3.tag Prince Bakery
+                            a.visit-shop(href="#") Also Visit Our Shop
+                            h4.price Price: &#8377 
+                                span= cart.product.price
+                            button.delete-cart(data-cartId = `${cart.id}`) Delete
+
+            .col-md-3 
+                .sub-total 
+                    h3.sub-heading No Item Selected
+                    input.d-inline(type="checkbox")
+                    h5 This order contains a gift 
+                    a.sub-buy(href="#")#buy-cart Proceed to Buy

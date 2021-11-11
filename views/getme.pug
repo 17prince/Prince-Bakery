@@ -1,0 +1,77 @@
+extends ./base
+
+block content 
+    .container-xxl(style= "margin-top: 100px;")
+        .container.account-setting
+            .right-panel
+                a.active-link#setting(href="#" )
+                    h4 
+                        i.fa.fa-cog(aria-hidden="true") 
+                        | Setting
+
+                a#orders(href="/orders")
+                    h4 
+                        i.fa.fa-shopping-bag(aria-hidden="true") 
+                        | Your Orders
+
+                a#address(href="#" )
+                    h4 
+                        i.fa.fa-map-marker(aria-hidden="true") 
+                        | Your Address 
+                
+                a#set-password(href="#")
+                    h4 
+                        i.fa.fa-unlock-alt(aria-hidden="true") 
+                        | Change Password 
+            .name-setting
+                .main-container#me-container
+                    a(href="#")#test
+                    h2.text-dark Your Account Setting
+                    form(name = 'basic')#basic-setting
+                        label(for="name") Name
+                        input#name(type="text", name="name"  placeholder =`${user.name}`)
+                        label(for="email") Email
+                        input#email(type="email", name= "email" placeholder = `${user.email}`)
+                        .user-image
+                            img.avatar(src=`/images/users/${user.photo}` alt='avatar') 
+                            input.upload-image(type="file" name= 'photo' accept= 'image/*')
+                            label(for="photo" ) Choose new photo
+                        button.btn.save-btn#save-basic(type = 'input') Save Settings
+                .main-container.d-none#address-container 
+                    h2.text-dark Your Address 
+                    form(name= 'address')#address
+                        label(for="country") Country/Region
+                        select#countries(name="country") 
+                            option(value="india") India
+                        label(for="name") Full Name 
+                        input(type="text" name = 'name' placeholder = `${user.name}`)
+                        label(for="mobile") Mobile Number 
+                        input(type="text" pattern ='^[0-9]{10}$' required placeholder = `${user.phone}`)
+                        label(for="pincode") Pincode 
+                        input#pincode(type="text" pattern ='^[0-9]{6}$' required placeholder= '6 digits [0-9] PIN code')
+                        label(for="state") State 
+                        select#state(name="state") 
+                            -const state_list = [ "Andhra Pradesh","Arunachal Pradesh","Assam","Bihar","Chhattisgarh","Goa","Gujarat","Haryana","Himachal Pradesh","Jammu and Kashmir","Jharkhand","Karnataka","Kerala","Madhya Pradesh","Maharashtra","Manipur","Meghalaya","Mizoram","Nagaland","Odisha","Punjab","Rajasthan","Sikkim","Tamil Nadu","Telangana","Tripura","Uttarakhand","Uttar Pradesh","West Bengal","Andaman and Nicobar Islands","Chandigarh","Dadra and Nagar Haveli","Daman and Diu","Delhi","Lakshadweep","Puducherry"]
+                            each state in state_list
+                                option(value=`${state}`)= state 
+                        label(for="house") Falt, House no., Building, Company, Apartment 
+                        input(type="text" name = 'house')
+                        label(for="area") Area, Street, Sector, Village 
+                        input(type="text" name = 'area')  
+                        label(for="city") Town/City
+                        input(type="text" name = 'city')
+                        .address-btn 
+                            button.btn.save-btn#save-p-address(type = 'submit') Save as a Primary Address 
+                            span(style= 'margin-top: 25px;') OR 
+                            button.btn.save-btn#save-s-address(type = 'submit') Save as a Secondry Address
+                .main-container.d-none#password 
+                    h2.text-dark Change Password 
+                    form(name = 'password')#password-form
+                        label(for="currentPassowrd") Current Password
+                        input(type="password" name = 'currentPassword')
+                        label(for="newPassowrd") New Password
+                        input(type="password" name = 'newPassword')
+                        label(for="confirmPassowrd") Confirm New Password 
+                        input(type="password" name = 'confirmPassword')
+
+                        button.btn.save-btn(type="submit")#save-password Save Password

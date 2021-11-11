@@ -1,0 +1,75 @@
+extends ./base
+
+block content 
+    .container-fluid.row(style = "margin-top: 100px")  
+            h5.bg-primary#product-count= `1-${outOfFound} of ${totalProduct} results`
+            .filter-section.col-md-2.hide-sm
+                h3 Filter Products
+                .filter-opption
+                    h4.border-bottom-2.border-dark.hide-lg  Top Category 
+                    form(name="filter-form" )
+                        div.item-section#topcategory-item 
+                            span.filter-item
+                                input(type="checkbox", name="Cakes" value = 'topCategory=cakes' ) 
+                                h6 Cakes
+                            span.filter-item
+                                input(type="checkbox", name="Breads" value = 'topCategory=bread') 
+                                h6 Breads
+                            span.filter-item
+                                input(type="checkbox" name="Pastries" value = 'topCategory=pastries') 
+                                h6 Pastries
+                            span.filter-item.hide-lg
+                                input(type="checkbox" name="Cookies" value = 'topCategory=cookies') 
+                                h6 Cookies
+                            span.filter-item.hide-lg
+                                input(type="checkbox" name="Doughnuts" value = 'topCategory=doughnuts') 
+                                h6 Doughnuts
+                    h4.border-bottom-2.border-dark.hide-lg  Price
+                    form(name="filter-form" )
+                        div.item-section#price-range
+                            span.filter-item
+                                input(type="checkbox"  value = 'price[gte]=500&price[lt]=600') 
+                                h6 &#8377 500 - &#8377 600
+                            span.filter-item
+                                input(type="checkbox"  value = 'price[gte]=400&price[lt]=500') 
+                                h6 &#8377 400 - &#8377 500
+                            span.filter-item.hide-lg
+                                input(type="checkbox" value = 'price[gte]=300&price[lt]=400') 
+                                h6 &#8377 300 - 400
+                            span.filter-item.hide-lg
+                                input(type="checkbox" value = 'price[lte]=300') 
+                                h6 Under &#8377 300
+                            span.filter-item.hide-lg
+                                input(type="checkbox" value = "sort=price") 
+                                h6 Sort by Price
+                            span.filter-item
+                                input(type="input" name= 'min' placeholder= 'Min').custom-price#min-price
+                                input(type="input" name= 'max' placeholder= 'Max').custom-price#max-price
+                                button.btn.custom-price-btn#go Go
+                                
+            .product-section.col-md-10#product-card
+                each item in items
+                    .product-card.row
+                        .col-sm-4.col-md-4.col-xs-6
+                            a(href=`/getproduct/${item.slug}`) 
+                                img(src=`/${item.image}`, alt=`${item.image.split('.')[0]}`)
+
+                        .col-sm-8.col-md-8.col-xs-6
+                            .product-info 
+                                a(href=`/getproduct/${item.slug}`) 
+                                    h2= item.name
+                                h3.tag Prince Bakery
+                                a.visit-shop(href="/location") Also Visit Our Shop
+                                h5.fw-bold Products are freshly prepared for you because your trust is our care.
+                                h4 Ratings:  
+                                    span= `${item.averageRatings} (${item.ratingsQuantity})`
+                                h4.price Price: &#8377 
+                                    span= item.price                        
+    
+    //- pagination
+    .pagination
+        a(href="#").page-no &laquo
+        a(href="page=1")#page1.page-no.active 1
+        a(href="page=2")#page2.page-no 2
+        a(href="#").page-no &raquo
+    

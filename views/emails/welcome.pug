@@ -1,0 +1,18 @@
+extends ./baseEmail
+
+
+block content
+    p Hi #{firstname},
+    p Welcome to Prince Bakery, we're glad to have you 🎉🙏
+    p We're all a big familiy here, so make sure to order something for you and your family !
+    table.btn.btn-primary(role='presentation', border='0', cellpadding='0', cellspacing='0')
+        tbody
+            tr
+                td(align='left')
+                    table(role='presentation', border='0', cellpadding='0', cellspacing='0')
+                        tbody
+                            tr
+                                td
+                                    a(href=`${url}`, target='_blank') Explore Us
+    p If you need any help with booking your next tour, please don't hesitate to contact us!
+    p - Prince, CEO

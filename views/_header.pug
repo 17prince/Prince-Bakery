@@ -1,0 +1,61 @@
+// START SCROLL TOP BUTTON
+a.scrollToTop(href='#')
+    i.fa.fa-angle-up
+// END SCROLL TOP BUTTON
+// Start header section
+header#mu-header
+    nav.navbar.navbar-default.mu-main-navbar(role='navigation')
+        .container
+            .navbar-header
+                // FOR MOBILE VIEW COLLAPSED BUTTON
+                button.navbar-toggle.collapsed(type='button' data-toggle='collapse' data-target='#navbar' aria-expanded='false' aria-controls='navbar')
+                    span.sr-only Toggle navigation
+                    span.icon-bar
+                    span.icon-bar
+                    span.icon-bar
+                // LOGO
+                // Text based logo
+                a.navbar-brand(href='/')
+                    img#brand-logo(src="/images/web-logo.png", alt="Shop logo")
+            #navbar.navbar-collapse.collapse
+                ul#top-menu.nav.navbar-nav.navbar-right.mu-main-nav
+                    li
+                        a(href='/') HOME
+                    li
+                        a(href='/products') PRODUCTS
+                    li
+                        a(href='#mu-about-us') ABOUT US
+                    li
+                        a(href='#mu-contact') CONTACT
+
+                    if(user)
+                        li
+                            a#cart-btn.notification(href=`/mycart/${user.id}`)
+                                span
+                                    | CART 
+                                i.fa.fa-cart-plus(aria-hidden='true')
+                                    span.badge=cartItems
+                    else 
+                        li
+                            a#cart-btn(href='/login')
+                                | LOGIN
+            //- .nav-collapse
+//-  End header section
+
+//- Avatar
+if(user)
+    .avatar-container(onlick = 'avatar-toggle()')
+            -const firstName = user.name.split(' ')
+            li
+                a(href='/me')
+                    if(user.photo.startsWith('http'))
+                        -let image = user.photo 
+                        img.avatar(src= image alt='avatar') 
+                    else 
+                        -image = `/images/users/${user.photo}`
+                        img.avatar(src= image   alt='avatar')
+                    span= firstName[0].charAt(0).toUpperCase() + user.name.split(' ')[0].slice(1)
+            li
+                <button id = "logout" >
+                    | Logout 
+                    i.fa.fa-sign-out(aria-hidden='true')

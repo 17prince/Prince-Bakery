@@ -1,0 +1,357 @@
+extends ./base
+
+block content
+    section#mu-slider
+        .mu-slider-area
+            // Top slider
+            .mu-top-slider
+                // Top slider single slide
+                .mu-top-slider-single
+                    img(src='/images/homebg.jpg' alt='img')
+                    // Top slider content
+                    .mu-top-slider-content
+                        span.mu-slider-small-title Welcome
+                        h2.mu-slider-title To The Prince Bakery
+                        p
+                            | Experience the best of baking with Prince Bakery
+                        
+                    // / Top slider content
+                    // / Top slider single slide
+                    // Top slider single slide
+                .mu-top-slider-single
+                    img(src='/images/homebg.jpg' alt='img')
+                    // Top slider content
+                    .mu-top-slider-content
+                        span.mu-slider-small-title The Elegant
+                        h2.mu-slider-title Indian Bakery
+                        p
+                            | Lorem ipsum dolor sit amet, consectetur adipisicing elit. Itaque voluptatem accusamus non quidem, deleniti optio.
+                        
+                    // / Top slider content
+                    // / Top slider single slide
+                    // Top slider single slide
+                .mu-top-slider-single
+                    img(src='/images/homebg.jpg' alt='img')
+                    // Top slider content
+                    .mu-top-slider-content
+                        span.mu-slider-small-title Delicious
+                        h2.mu-slider-title Sweet Cakes
+                        p
+                            | Lorem ipsum dolor sit amet, consectetur adipisicing elit. Itaque voluptatem accusamus non quidem, deleniti optio.
+                        
+                    // / Top slider content
+                    // / Top slider single slide
+    // End slider
+    // Start About us
+    section#mu-about-us
+        .container
+            .row
+                .col-md-12
+                    .mu-about-us-area
+                        .mu-title
+                            span.mu-subtitle Discover
+                            h2 ABOUT US
+                        .row
+                            .col-md-6
+                                .mu-about-us-left
+                                    img(src='/images/about.jpg' alt='img')
+                            .col-md-6
+                                .mu-about-us-right
+                                    p
+                                        | Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquam minus aliquid, itaque illum assumenda repellendus dolorem, dolore numquam totam saepe, porro delectus, libero enim odio quo. Explicabo ex sapiente sit eligendi, facere voluptatum! Quia vero rerum sunt porro architecto corrupti eaque corporis eum, enim soluta, perferendis dignissimos, repellendus, beatae laboriosam.
+                                    ul
+                                        li Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+                                        li Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+                                        li Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quia.
+                                        li Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+                                        li Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+                                        li Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quia.
+                                    p
+                                        | Lorem ipsum dolor sit amet, consectetur adipisicing elit. Atque similique molestias est quod reprehenderit, quibusdam nam qui, quam magnam.
+    // End About us
+    // Start Counter Section
+    section#mu-counter
+        .mu-counter-overlay
+            .container
+                .row
+                    .col-md-12
+                        .mu-counter-area
+                            ul.mu-counter-nav
+                                li.col-md-3.col-sm-3.col-xs-12
+                                    .mu-single-counter
+                                        span Fresh
+                                        h3
+                                            span.counter-value(data-count='150') 0
+                                            sup +
+                                        p Cakes
+                                li.col-md-3.col-sm-3.col-xs-12
+                                    .mu-single-counter
+                                        span Delicious
+                                        h3
+                                            span.counter-value(data-count='60') 0
+                                            sup +
+                                        p Cookies
+                                li.col-md-3.col-sm-3.col-xs-12
+                                    .mu-single-counter
+                                        span Hand Made
+                                        h3
+                                            span.counter-value(data-count='45') 0
+                                            sup +
+                                        p Pastries 
+                                li.col-md-3.col-sm-3.col-xs-12
+                                    .mu-single-counter
+                                        span Satisfied
+                                        h3
+                                            span.counter-value(data-count='6560') 0
+                                            sup +
+                                        p Customers
+    // End Counter Section
+    // Start Reservation section
+    section#mu-reservation
+        .container
+            .row
+                .col-md-12
+                    .mu-reservation-area
+                        .mu-title
+                            span.mu-subtitle Our
+                            h2 Opening Hour
+                        .mu-reservation-content
+                            p
+                                | Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ratione quidem autem iusto, perspiciatis, amet, quaerat blanditiis ducimus eius recusandae nisi aut totam alias consectetur et.
+                        .col-md-6.col-md-offset-3.text-center
+                            .mu-reservation-right
+                                .mu-opening-hour
+                                    h2 Opening Hours
+                                    ul.list-unstyled
+                                        li
+                                            p Monday &amp; Tuesday
+                                            p 9:00 AM - 4:00 PM
+                                        li
+                                            p Wednesday &amp; Thursday
+                                            p 9:00 AM - Midnight
+                                        li
+                                            p Friday &amp; Saturday
+                                            p 9:00 AM - Midnight
+                                        li
+                                            p Sunday
+                                            p 9:00 AM - 11:00 PM
+    // End Reservation section
+    // Start Gallery
+    section#mu-gallery
+        .container
+            .row
+                .col-md-12
+                    .mu-gallery-area
+                        .mu-title
+                            span.mu-subtitle Discover
+                            h2 Top Rated Products
+                        .container-lg
+                            //- // Row-1
+                            .card-section
+                                each item in data 
+                                    .card
+                                        span.rating= `${item.Rating}(${item.quantity})`
+                                        .product-img
+                                            img(src=`/${item.image}` alt=`${item.image.split('.')[0]}`)
+                                        .product-details
+                                            h3= item.Name
+                                            h5= `Rs. ${item.Price}`
+                                            .buy-cart-btn
+                                                a(href= `/getproduct/${item.slug}`)
+                                                    button.btn Buy Now
+                                                //- a(href=`javascript:void()`)
+                                                //-     button.btn(data-product = `${item.id}` data-userId = `${user.id}`) Add To Cart
+                 
+    // End Gallery
+    // Start Client Testimonial section
+    section#mu-client-testimonial
+        .mu-overlay
+            .container
+                .row
+                    .col-md-12
+                        .mu-client-testimonial-area
+                            .mu-title
+                                span.mu-subtitle Testimonials
+                                h2 What Customers Say
+                            // testimonial content
+                            .mu-testimonial-content
+                                // testimonial slider
+                                ul.mu-testimonial-slider
+                                    li
+                                        .mu-testimonial-single
+                                            .mu-testimonial-info
+                                                p
+                                                    | Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cupiditate consequuntur ducimus cumque iure modi nesciunt recusandae eligendi vitae voluptatibus, voluptatum tempore, ipsum nisi perspiciatis. Rerum nesciunt fuga ab natus, dolorem?
+                                            .mu-testimonial-bio
+                                                p - David Muller
+                                    li
+                                        .mu-testimonial-single
+                                            .mu-testimonial-info
+                                                p
+                                                    | Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cupiditate consequuntur ducimus cumque iure modi nesciunt recusandae eligendi vitae voluptatibus, voluptatum tempore, ipsum nisi perspiciatis. Rerum nesciunt fuga ab natus, dolorem?
+                                            .mu-testimonial-bio
+                                                p - David Muller
+                                    li
+                                        .mu-testimonial-single
+                                            .mu-testimonial-info
+                                                p
+                                                    | Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cupiditate consequuntur ducimus cumque iure modi nesciunt recusandae eligendi vitae voluptatibus, voluptatum tempore, ipsum nisi perspiciatis. Rerum nesciunt fuga ab natus, dolorem?
+                                            .mu-testimonial-bio
+                                                p - David Muller
+    // End Client Testimonial section
+    // Start Chef Section
+    section#mu-chef
+        .container
+            .row
+                .col-md-12
+                    .mu-chef-area
+                        .mu-title
+                            span.mu-subtitle Our Professionals
+                            h2 MASTER CHEFS
+                        .mu-chef-content
+                            ul.mu-chef-nav
+                                li
+                                    .mu-single-chef
+                                        figure.mu-single-chef-img
+                                            img(src='/images/chef-1245676_640.jpg' alt='chef img')
+                                        .mu-single-chef-info
+                                            h4 Simon Jonson
+                                            span Head Chef
+                                        .mu-single-chef-social
+                                            a(href='#')
+                                                i.fa.fa-facebook
+                                            a(href='#')
+                                                i.fa.fa-twitter
+                                            a(href='#')
+                                                i.fa.fa-google-plus
+                                            a(href='#')
+                                                i.fa.fa-linkedin
+                                li
+                                    .mu-single-chef
+                                        figure.mu-single-chef-img
+                                            img(src='/images/chef-4625935_640.jpg' alt='chef img')
+                                        .mu-single-chef-info
+                                            h4 Kelly Wenzel
+                                            span Pastries Chef
+                                        .mu-single-chef-social
+                                            a(href='#')
+                                                i.fa.fa-facebook
+                                            a(href='#')
+                                                i.fa.fa-twitter
+                                            a(href='#')
+                                                i.fa.fa-google-plus
+                                            a(href='#')
+                                                i.fa.fa-linkedin
+                                li
+                                    .mu-single-chef
+                                        figure.mu-single-chef-img
+                                            img(src='/images/chef-4807317_640.jpg' alt='chef img')
+                                        .mu-single-chef-info
+                                            h4 Greg Hong
+                                            span Grill Chef
+                                        .mu-single-chef-social
+                                            a(href='#')
+                                                i.fa.fa-facebook
+                                            a(href='#')
+                                                i.fa.fa-twitter
+                                            a(href='#')
+                                                i.fa.fa-google-plus
+                                            a(href='#')
+                                                i.fa.fa-linkedin
+                                li
+                                    .mu-single-chef
+                                        figure.mu-single-chef-img
+                                            img(src='/images/kitchen-79574_640.jpg' alt='chef img')
+                                        .mu-single-chef-info
+                                            h4 Marty Fukuda
+                                            span Cake Chef
+                                        .mu-single-chef-social
+                                            a(href='#')
+                                                i.fa.fa-facebook
+                                            a(href='#')
+                                                i.fa.fa-twitter
+                                            a(href='#')
+                                                i.fa.fa-google-plus
+                                            a(href='#')
+                                                i.fa.fa-linkedin
+                                li
+                                    .mu-single-chef
+                                        figure.mu-single-chef-img
+                                            img(src='/images/kitchen-81493_640.jpg' alt='chef img')
+                                        .mu-single-chef-info
+                                            h4 Simon Jonson
+                                            span Head Chef
+                                        .mu-single-chef-social
+                                            a(href='#')
+                                                i.fa.fa-facebook
+                                            a(href='#')
+                                                i.fa.fa-twitter
+                                            a(href='#')
+                                                i.fa.fa-google-plus
+                                            a(href='#')
+                                                i.fa.fa-linkedin
+                                
+    // End Chef Section
+    // Start Contact section
+    section#mu-contact
+        .container
+            .row
+                .col-md-12
+                    .mu-contact-area
+                        .mu-title
+                            span.mu-subtitle Get In Touch
+                            h2 Contact Us
+                        .mu-contact-content
+                            .row
+                                .col-md-6
+                                    .mu-contact-left
+                                        // Email message div
+                                        #form-messages
+                                        // Start contact form
+                                        form#ajax-contact.mu-contact-form(method='post' action='mailer.php')
+                                            .form-group
+                                                label(for='name') Your Name
+                                                input#name.form-control(type='text' name='name' placeholder='Name' required='')
+                                            .form-group
+                                                label(for='email') Email address
+                                                input#email.form-control(type='email' name='email' placeholder='Email' required='')
+                                            .form-group
+                                                label(for='subject') Subject
+                                                input#subject.form-control(type='text' name='subject' placeholder='Subject' required='')
+                                            .form-group
+                                                label(for='message') Message
+                                                textarea#message.form-control(name='message' cols='30' rows='10' placeholder='Type Your Message' required='')
+                                            button.mu-send-btn(type='submit') Send Message
+                                .col-md-6
+                                    .mu-contact-right
+                                        .mu-contact-widget
+                                            h3 Office Address
+                                            p
+                                                | Lorem ipsum dolor sit amet, consectetur adipisicing elit. Mollitia temporibus corporis ea non consequatur porro corrupti hic voluptatibus assumenda, doloribus.
+                                            address
+                                                p
+                                                    i.fa.fa-phone
+                                                    |  (850) 457 6688
+                                                p
+                                                    i.fa.fa-envelope-o
+                                                    | contact@princebakery.io
+                                                p
+                                                    i.fa.fa-map-marker
+                                                    | Vijay Nagar, Indore, India
+                                        .mu-contact-widget
+                                            h3 Open Hours
+                                            address
+                                                p
+                                                    span Monday - Friday
+                                                    |  9.00 am to 12 pm
+                                                p
+                                                    span Saturday
+                                                    |  9.00 am to 10 pm
+                                                p
+                                                    span Sunday
+                                                    |  10.00 am to 12 pm
+    // End Contact section
+    //- // Start Map section
+    //- section#mu-map
+    //-     iframe(src='https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1839.663559503895!2d75.89191163120918!3d22.753238426152144!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x396302af403406fb%3A0x5b50834b117f8bab!2sVijay%20Nagar%2C%20Indore%2C%20Madhya%20Pradesh%20452010!5e0!3m2!1sen!2sin!4v1629216142375!5m2!1sen!2sin' width='600' height='450' style='border:0;' allowfullscreen='' loading='lazy')
+    //- // End Map section
