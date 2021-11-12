@@ -48,12 +48,27 @@ exports.getCheckOutSession = catchAsync(async (req, res, next) => {
   });
 });
 
-const createBookingCheckOut = async (session) => {
+const createBookingCheckout = async (session) => {
   const products = session.client_reference_id.split(' ');
   const user = (await User.findOne({ email: session.customer_email })).id;
   const price = session.amount_total / 100;
+
   await Booking.create({ products, user, price });
 };
 
 // Webhook checkout for database entry of order
-const webhooksCheckOut = (req, res, next) => {};
+const webhooksCheckOut = (req, res, next) => {
+  const signature = req.headers['stripe-signature'];
+  let event;
+  try {
+    event = stripe.webhooks.constructEvent(req.body, signature, process.env.STRIPE_WEBHOOK_SECRET);
+  } catch (error) {
+    return res.status(400).send(`Webhook error: ${error.message}`);
+  }
+
+  if (event.type === 'checkout.session.completed') {
+    createBookingCheckout(event.data.object);
+  }
+
+  res.status(200).json({ received: 'true' });
+};

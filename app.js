@@ -43,6 +43,15 @@ app.use('/api', limiter);
 app.set('view engine', 'pug');
 app.set('views', path.join(__dirname, 'views'));
 
+// Webhook Checkout
+app.post(
+  '/webhook-checkout',
+  express.raw({
+    type: 'application/json',
+  }),
+  bookingController.webhooksCheckOut
+);
+
 app.use(express.static(path.join(__dirname, 'public')));
 // body-parser to read req.body
 app.use(express.json({ limit: '10kb' }));
@@ -78,15 +87,6 @@ app.use(
 
 // Compressing files
 app.use(compression());
-
-// Webhook Checkout
-// app.post(
-//   '/webhook-checkout',
-//   express.raw({
-//     type: 'application/json',
-//   }),
-//   bookingController.webhooksCheckOut
-// );
 
 // ROUETES
 app.use('/', viewRouter);
