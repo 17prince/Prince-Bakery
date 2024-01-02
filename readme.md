@@ -38,11 +38,29 @@ Welcome to our Prince Bakery! This API based website allows users to explore and
   - Sendgrid in production
 
 ## Built With
-*[Nodejs.badge]
+* [![Javascript.badge]](https://developer.mozilla.org/en-US/docs/Web/JavaScript)
+* [![Expressjs.badge]](https://expressjs.com/)
+* [![Mongdb.badge]](https://www.mongodb.com/)
+* [![Nodejs.badge]](https://nodejs.org/en)
+* [![Stripe.badge]](https://stripe.com/)
+* [![Redis.badge]](https://redis.io/)
+* [![html.badge]](https://www.w3schools.com/html/)
+* [![css.badge]](https://www.w3schools.com/css/)
+* [![jwt.badge]](https://jwt.io/)
+* [![Pug.badge]](https://pugjs.org/)
 
 
 <!-- Shields badages (https://shields.io/badges): For interactive badges used in Built With section -->
 [Nodejs.badge]: https://img.shields.io/badge/Nodejs-green?style=for-the-badge&logo=nodedotjs&logoColor=%23339933
+[Expressjs.badge]: https://img.shields.io/badge/ExpressJs-%23000000?style=for-the-badge&logo=express
+[Javascript.badge]: https://img.shields.io/badge/Javascript%20-%23F7DF1E?style=for-the-badge&logo=javascript&logoColor=black
+[Mongdb.badge]: https://img.shields.io/badge/MongoDB-%2347A248?style=for-the-badge&logo=mongodb&logoColor=white
+[Stripe.badge]: https://img.shields.io/badge/Stripe-%23008CDD?style=for-the-badge&logo=stripe&logoColor=white
+[html.badge]: https://img.shields.io/badge/HTML-%23E34F26?style=for-the-badge&logo=html5&logoColor=white
+[css.badge]: https://img.shields.io/badge/CSS-%231572B6?style=for-the-badge&logo=css3&logoColor=white
+[jwt.badge]: https://img.shields.io/badge/JWT-%23000000?style=for-the-badge&logo=jsonwebtokens&logoColor=white
+[Redis.badge]: https://img.shields.io/badge/Redis-%23DC382D?style=for-the-badge&logo=redis&logoColor=black
+[Pug.badge]: https://img.shields.io/badge/Pug-%23A86454?style=for-the-badge&logo=pug&logoColor=black
 
 
 
