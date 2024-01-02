@@ -37,4 +37,12 @@ Welcome to our Prince Bakery! This API based website allows users to explore and
   - Mailtrap for testing
   - Sendgrid in production
 
+## Built With
+*[Nodejs.badge]
+
+
+<!-- Shields badages (https://shields.io/badges): For interactive badges used in Built With section -->
+[Nodejs.badge]: https://img.shields.io/badge/Nodejs-green?style=for-the-badge&logo=nodedotjs&logoColor=%23339933
+
+
 
