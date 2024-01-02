@@ -1,3 +1,14 @@
-# Prince Bakery
+<!-- PROJECT LOGO -->
+<br />
+<div align="center">
+  <a href="https://github.com/17prince/Prince-Bakery">
+    <img src="public/images/logo-solid.png" alt="Logo" width="80" height="80">
+  </a>
 
-This is a practice project(NodeJs with MongoDB ). It is basically a bakery website in which user can see bakery items and not actually order but can make a test order. This is an API based website includes all the CRUD operations. It was a fun for me while making this project. Go ahead and take a look.
+  <h3 align="center">🍰Prince Bakery🍰</h3>
+
+  <p align="center">
+    🚀An awesome Bakery🎂. Explore a delightful range of bakery items!🚀
+  </p>
+</div>
+
