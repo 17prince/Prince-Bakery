@@ -49,6 +49,59 @@ Welcome to our Prince Bakery! This API based website allows users to explore and
 * [![jwt.badge]](https://jwt.io/)
 * [![Pug.badge]](https://pugjs.org/)
 
+# Getting Started With
+  This is an example of how you may give instructions on setting up your project locally.
+  To get a local copy up and running follow these simple example steps.
+
+  ### Installation 
+  Below is the example of how you can install this project and run it on your local machine.
+  
+  **NOTE:** [*The current version of nodejs for this project is ( >=10.0.0 <15)*]
+
+  1. Clone the repository
+     ```sh
+        git clone https://github.com/17prince/Prince-Bakery.git
+     ```
+  2. Install NPM packages
+     ```sh
+     npm install
+     ```
+  3. Create a `config.env` file
+     ```
+     NODE_ENV=development
+     PORT=1714
+     DATABASE
+     DATABASE_PASSWORD
+
+     JWT_SECRET
+     JWT_EXPIERS_IN=90d
+     JWT_COOKIE_EXPIERS_IN=90
+
+     // mailtrap for testing
+     EMAIL_USERNAME
+     EMAIL_PASSWORD
+     EMAIL_HOST=smtp.mailtrap.io
+     EMAIL_PORT
+
+     REDIS_URL=redis://<password>@<Endpoint>
+     REDIS_ENDPOINT
+     REDIS_PASSWORD
+
+      EMAIL_FROM
+     
+     //Sendgrid for production
+     SENDGRID_USERNAME
+     SENDGRID_PASSWORD
+
+     STRIPE_SECRET_KEY
+     STRIPE_WEBHOOK_SECRET
+
+## Contact
+
+Name : Prince Vishwakarma
+
+Contact : [LinkedIn](https://www.linkedin.com/in/prince-vishwakarma24/)
+
 
 <!-- Shields badages (https://shields.io/badges): For interactive badges used in Built With section -->
 [Nodejs.badge]: https://img.shields.io/badge/Nodejs-green?style=for-the-badge&logo=nodedotjs&logoColor=%23339933
